@@ -1,1 +1,2 @@
 # library-link-network-demo
+Boston University Libraries began working with Zepheira and other library partners in 2015 to publish bibliographic data to web sites that can be indexed by standard Internet search engines like Google, Bing, Yahoo, etc. The files in this repository are files that are associated with processing and enhancing the bibliographic record and making them discoverable on the web.
