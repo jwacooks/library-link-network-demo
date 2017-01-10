@@ -1,0 +1,61 @@
+rule "change 856 to 956" priority 3
+when
+   (TRUE)
+then
+   changeField "856" to "956"
+end
+
+rule "preserve 856" priority 2
+when
+   (TRUE)
+then
+   changeField "956"  to "856"  if  ( exists "956.u.http://hdl.handle.net*") 
+   changeField "956"  to "856"  if  ( exists "956.u.https://archive.org/*")
+   changeField "956"  to "856"  if  ( exists "956.u.http://books.google.com*")
+
+end
+
+
+rule "Remove CKB" priority 1
+when
+(TRUE)
+then 
+removeField "035" if (exists "035.a.(CKB)*")
+removeField "770" if (exists "770.w.(CKB)*")
+removeField "771" if (exists "771.w.(CKB)*")
+removeField "772" if (exists "772.w.(CKB)*")
+removeField "773" if (exists "773.w.(CKB)*")
+removeField "774" if (exists "774.w.(CKB)*")
+removeField "775" if (exists "775.w.(CKB)*")
+removeField "762" if (exists "762.w.(CKB)*")
+removeField "785" if (exists "785.w.(CKB)*")
+removeField "780" if (exists "780.w.(CKB)*")
+RemoveField "956"
+end
+
+rule "Remove field conditionally"  priority 1
+when
+(TRUE)
+then
+RemoveField "500" if (exists "500.a.Record is based on bibliographic data in ProQuest*")
+end
+
+rule "Remove (uri)" priority 1
+when 
+   (TRUE)
+then
+   ReplaceContents "020.0.(uri) " with ""
+   ReplaceContents "022.0.(uri) " with ""
+   ReplaceContents "035.0.(uri) " with ""
+   ReplaceContents "100.0.(uri) " with ""
+   ReplaceContents "110.0.(uri) " with ""
+   ReplaceContents "111.0.(uri) " with ""
+   ReplaceContents "600.0.(uri) " with ""
+   ReplaceContents "610.0.(uri) " with ""
+   ReplaceContents "651.0.(uri) " with ""
+   ReplaceContents "650.0.(uri) " with ""
+   ReplaceContents "700.0.(uri) " with ""
+   ReplaceContents "710.0.(uri) " with ""
+   ReplaceContents "830.0.(uri) " with ""
+end
+
