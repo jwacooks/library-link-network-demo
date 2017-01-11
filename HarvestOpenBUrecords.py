@@ -4,7 +4,7 @@
 ## Jack Ammerman
 ## January 10, 2017
 
-## run this from a working directory with 
+## run this from a working directory
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, quote_plus
 import time
