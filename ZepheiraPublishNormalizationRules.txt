@@ -33,13 +33,6 @@ removeField "780" if (exists "780.w.(CKB)*")
 RemoveField "956"
 end
 
-rule "Remove field conditionally"  priority 1
-when
-(TRUE)
-then
-RemoveField "500" if (exists "500.a.Record is based on bibliographic data in ProQuest*")
-end
-
 rule "Remove (uri)" priority 1
 when 
    (TRUE)
